@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mad_2022_26/pages/second_page.dart';
+//import 'package:mad_2022_26/pages/second_page.dart';
 
 class UserData {
   final String userName;
@@ -43,7 +43,8 @@ class FirstRoute extends StatelessWidget {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text("Quit"))
+              child: Text("Quit")),
+          Image.network("https://i.ytimg.com/vi/jqxz7QvdWk8/default.jpg"),
         ],
       )),
     );

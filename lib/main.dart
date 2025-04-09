@@ -1,18 +1,10 @@
 import "package:flutter/material.dart";
-//import "package:mad_2022_26/pages/animated_container.dart";
-//import "package:mad_2022_26/pages/grid_view_example.dart";
-//import "package:mad_2022_26/pages/grid_view_example.dart";
-//import "package:mad_2022_26/pages/page_view_example.dart";
 import "package:mad_2022_26/pages/route_example.dart";
 import "package:mad_2022_26/pages/second_page.dart";
-//import "package:mad_2022_26/pages/signup_page.dart";
-import "package:mad_2022_26/pages/stack_example.dart";
-//import "package:mad_2022_26/pages/statefulwidget_interactive_example.dart";
-//import "package:mad_2022_26/pages/tabs_example.dart";
-//import "package:mad_2022_26/pages/tictoc_page.dart";
-//import "package:mad_2022_26/pages/views_example.dart";
-// import "package:mad_2022_26/pages/list_view_builder_example.dart";
-// import "package:mad_2022_26/pages/views_example.dart";
+import "package:mad_2022_26/pages/youtubesearch/model/item_data.dart";
+import "package:mad_2022_26/pages/youtubesearch/play_video.dart";
+import "package:mad_2022_26/pages/youtubesearch/youtube_search_page.dart";
+
 // import 'package:firebase_core/firebase_core.dart';
 // import 'firebase_options.dart';
 
@@ -41,8 +33,10 @@ class MyApp extends StatelessWidget {
 
       onGenerateRoute: (RouteSettings setting) {
         final arg = setting.arguments;
+        // final item = setting.arguments as ItemData;
         if (setting.name == '/') {
-          return MaterialPageRoute(builder: (_) => FirstRoute());
+          //return MaterialPageRoute(builder: (_) => FirstRoute());
+          return MaterialPageRoute(builder: (_) => YoutubeSearchPage());
         } else if (setting.name == '/secondroute') {
           if (arg is UserData) {
             return MaterialPageRoute(
@@ -54,6 +48,10 @@ class MyApp extends StatelessWidget {
                 builder: (_) => Scaffold(
                       body: Text("Error"),
                     ));
+          }
+        } else if (setting.name == '/playvideo') {
+          if (arg is ItemData) {
+            return MaterialPageRoute(builder: (_) => PlayVideo(item: arg));
           }
         } else {
           return MaterialPageRoute(
